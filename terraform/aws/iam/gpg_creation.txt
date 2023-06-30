@@ -1,0 +1,9 @@
+GPG Creation Steps:
+
+Install gpg in windows using https://gpg4win.org/download.html
+Check gpg is installed : gpg --version
+Create gpg : gpg --gen-key
+Export the binary key in same location where code is present: gpg --output public-key-binary.gpg --export user_email (same email by which gpg key created)
+Above will store the key : public-key-binary.gpg in the location
+After running terrform apply , we will get encrypted key so we have to decrypt it by using following command:
+echo -n "encrypted_secret" | base64 --decode | gpg --decrypt (this will give original secret for access key for particular user)
